@@ -1,45 +1,21 @@
-# Chatter — website
+# Chatter website
 
-Marketing and download site for **Chatter**, an unofficial client for Yapper.
-The app is **closed source**. This repository is the website only.
-Installable builds live on the public releases of `Yp777777777777/winerplus` — not source.
+The download page for Chatter, an unofficial Yapper client. The app itself is closed source, this repo is only the site.
 
-Next.js 14 (App Router, static export), plain CSS, no extra dependencies.
+Next.js 14 (static export), plain CSS, no other dependencies.
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build && npm start
+npm run dev     # http://localhost:3000
+npm run build   # static site goes to /out
 ```
 
-The version name, unsigned IPA link and APK link are read in the browser from
-the latest GitHub release (`Chatter.ipa` / `chatter.apk`), so a new build
-updates the site without editing a version constant. If GitHub cannot be
-reached, the page falls back to **Update 1.100.7** and
+## How downloads work
 
-`https://github.com/Yp777777777777/winerplus/releases/download/v1.100.7/Chatter.ipa`
-
-Do not tell visitors to clone a repo, run Actions, or build an IPA. iOS
-installs that file with AltStore or Sideloadly.
+On load the page asks GitHub for the latest release of `Yp777777777777/winerplus` and picks up the version name,
+`Chatter.ipa`, `chatter.apk` and the release notes from it. So a new release updates the site by itself.
+If GitHub can't be reached it falls back to the values in `lib/data.js`.
 
 ## Screenshots
 
-The decorations section shows real images only after these files exist in
-`public/shots/` (phone screenshots, not mockups):
-
-| File | What to capture |
-| --- | --- |
-| `decoration-profile.png` | Profile modal with a Discord avatar decoration centered on the avatar |
-| `decoration-chat.png` | A chat row or member list where that same decoration is visible on the avatar |
-| `studio-slots.png` | Studio → Profile, five look slots, one of them applied with the decoration |
-| `glass-chat.png` | Liquid glass chat with a wallpaper showing through the panels |
-| `nameplate.png` | A profile wearing a nameplate and a name effect |
-
-Missing files must not be listed in `components/Shots.js` (a missing image is a 404).
-When a PNG is in `public/shots/`, add it to the `SHOTS` array in that file:
-
-```js
-export const SHOTS = [
-  { src: "/shots/decoration-profile.png", caption: "Profile modal — decoration centered on the avatar" },
-];
-```
+They live in `public/shots/` (`chat.png`, `members.png`, `studio.png`), with the status bar cropped off.
