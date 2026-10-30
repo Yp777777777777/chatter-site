@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Decorations from "@/components/Decorations";
 import Showcase from "@/components/Showcase";
 import Features from "@/components/Features";
 import Themes from "@/components/Themes";
@@ -14,6 +15,7 @@ export default function Page() {
       <Nav />
       <main className="wrap">
         <Hero />
+        <Decorations />
         <Showcase />
         <Features />
         <Themes />

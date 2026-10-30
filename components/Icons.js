@@ -1,4 +1,5 @@
 const P = {
+  spark: <path d="M12 2.5 13.8 9.2 20.5 12 13.8 14.8 12 21.5 10.2 14.8 3.5 12 10.2 9.2 12 2.5Z" />,
   sliders: <><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" /><circle cx="16" cy="6" r="2" /><circle cx="10" cy="12" r="2" /><circle cx="18" cy="18" r="2" /></>,
   layers: <><path d="m12 3 9 5-9 5-9-5 9-5Z" /><path d="m3 13 9 5 9-5" /></>,
   monitor: <><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8M12 16v4" /></>,

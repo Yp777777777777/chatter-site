@@ -11,7 +11,7 @@ export default function Showcase() {
       <div className="head">
         <span className="eyebrow">Featured</span>
         <h2>What makes Chatter different</h2>
-        <p className="sub">Six highlights from the app, straight from its release notes.</p>
+        <p className="sub">Highlights from the app, including Discord decorations.</p>
       </div>
 
       <div className="showcase glass">
