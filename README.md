@@ -35,4 +35,11 @@ The decorations section shows real images only after these files exist in
 | `glass-chat.png` | Liquid glass chat with a wallpaper showing through the panels |
 | `nameplate.png` | A profile wearing a nameplate and a name effect |
 
-Missing files stay hidden. No placeholder frames.
+Missing files must not be listed in `components/Shots.js` (a missing image is a 404).
+When a PNG is in `public/shots/`, add it to the `SHOTS` array in that file:
+
+```js
+export const SHOTS = [
+  { src: "/shots/decoration-profile.png", caption: "Profile modal — decoration centered on the avatar" },
+];
+```
