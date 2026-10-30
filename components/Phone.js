@@ -1,9 +1,7 @@
-export default function Phone({ children, className = "" }) {
+export default function Phone({ src, alt, w, h, priority = false }) {
   return (
-    <div className={`phone ${className}`}>
-      <div className="phone-bezel">
-        <div className="phone-screen">{children}</div>
-      </div>
+    <div className="phone">
+      <img src={src} alt={alt} width={w} height={h} loading={priority ? "eager" : "lazy"} />
     </div>
   );
 }

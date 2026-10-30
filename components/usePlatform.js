@@ -1,16 +1,13 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
+// "ios", "android" or null (desktop / not detected yet)
 export default function usePlatform() {
-  const [platform, setPlatform] = useState("unknown");
-
+  const [p, setP] = useState(null);
   useEffect(() => {
     const ua = navigator.userAgent || "";
-    if (/iPhone|iPad|iPod/i.test(ua)) setPlatform("ios");
-    else if (/Android/i.test(ua)) setPlatform("android");
-    else setPlatform("other");
+    if (/android/i.test(ua)) setP("android");
+    else if (/iphone|ipad|ipod/i.test(ua)) setP("ios");
   }, []);
-
-  return platform;
+  return p;
 }
