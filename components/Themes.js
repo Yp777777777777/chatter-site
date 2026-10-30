@@ -8,9 +8,8 @@ export default function Themes() {
   return (
     <section className="section" id="themes">
       <div className="head">
-        <span className="eyebrow">Themes</span>
-        <h2>Ten presets. Try one on this page.</h2>
-        <p className="sub">These are the app&apos;s real presets. Tap one and the whole site changes with it.</p>
+        <h2>Try a theme right here</h2>
+        <p className="sub">These are the real presets from the app. Tap one and this whole page changes.</p>
       </div>
       <div className="themes">
         {THEMES.map((t) => (
@@ -19,7 +18,6 @@ export default function Themes() {
               <i style={{ background: `linear-gradient(135deg, ${t.accent}, ${t.accent2})` }} />
             </span>
             <span className="tname">{t.name}</span>
-            <span className="tmeta">{t.scheme}</span>
             {t.id === id && <span className="tick"><Icon name="check" size={14} /></span>}
           </button>
         ))}

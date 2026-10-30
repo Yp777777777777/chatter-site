@@ -5,9 +5,8 @@ export default function Features() {
   return (
     <section className="section" id="features">
       <div className="head">
-        <span className="eyebrow">Features</span>
-        <h2>Everything on one glass surface</h2>
-        <p className="sub">The chat stays the same. Chatter changes how it looks, feels and notifies you.</p>
+        <h2>What else is in there</h2>
+        <p className="sub">The chat works like it always did. These are the extras.</p>
       </div>
       <div className="grid">
         {FEATURES.map((f) => (
