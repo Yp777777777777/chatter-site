@@ -1,52 +1,27 @@
 "use client";
-import { Icon, Logo } from "./Icons";
-import { FACTS } from "@/lib/data";
+import { Icon } from "./Icons";
+import Phone from "./Phone";
+import usePlatform from "./usePlatform";
 import { useRelease } from "./ReleaseProvider";
 
 export default function Hero() {
-  const { version, name, ipa, apk, notes } = useRelease();
+  const { name, ipa, apk } = useRelease();
+  const p = usePlatform();
+  const apkBtn = <a key="a" className={"btn btn-lg" + (p === "ios" ? " btn-ghost" : "")} href={apk}><Icon name="download" size={20} /> Android APK</a>;
+  const iosBtn = <a key="i" className={"btn btn-lg" + (p !== "ios" ? " btn-ghost" : "")} href={ipa}><Icon name="download" size={20} /> iOS IPA</a>;
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <span className="pill glass"><span className="dot" /> Unofficial client for Yapper · {name}</span>
-        <h1>Chat, in <span className="grad">liquid glass</span>.</h1>
+        <span className="pill glass"><span className="dot" /> unofficial yapper client · {name}</span>
+        <h1>Yapper, but it looks how <i>you</i> want.</h1>
         <p className="lead">
-          Download the unsigned iOS IPA and install it with AltStore or Sideloadly.
-          Discord avatar decorations stay centered on the portrait, with ten themes,
-          liquid glass and optional encrypted DMs.
+          I made Chatter because I wanted Discord decorations, themes and a nicer looking chat on my phone.
+          You sign in with your normal Yapper account and everything else is just there.
         </p>
-        <div className="cta">
-          <a className="btn btn-lg" href={ipa}>
-            <Icon name="download" size={20} /> Download unsigned IPA
-          </a>
-          <a className="btn btn-lg btn-ghost" href={apk}>
-            <Icon name="phone" size={20} /> Android APK
-          </a>
-        </div>
-        <p className="fine">Unsigned Chatter.ipa · {name} · not on the App Store · free Apple ID installs expire after 7 days</p>
+        <div className="cta">{p === "ios" ? [iosBtn, apkBtn] : [apkBtn, iosBtn]}</div>
+        <p className="fine">Works on Android and iOS. Not on any app store, you download it from here.</p>
       </div>
-
-      <aside className="hero-card glass" aria-label="Latest release">
-        <div className="hc-top">
-          <Logo size={72} />
-          <div>
-            <div className="hc-name">Chatter</div>
-            <div className="hc-sub">{name} · v{version}</div>
-          </div>
-          <span className="tag">iOS</span>
-        </div>
-        <a className="btn btn-block" href={ipa}>
-          <Icon name="download" size={18} /> Chatter.ipa
-        </a>
-        <ul className="facts">
-          {FACTS.map((f) => (
-            <li key={f.label}><b>{f.value}</b><span>{f.label}</span></li>
-          ))}
-        </ul>
-        <a className="hc-link" href={notes} target="_blank" rel="noopener noreferrer">
-          Release notes for {name}
-        </a>
-      </aside>
+      <Phone src="/shots/chat.png" alt="A Chatter channel with glass panels, avatar decorations and a custom name color" w={780} h={1630} priority />
     </section>
   );
 }
