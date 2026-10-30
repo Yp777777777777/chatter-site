@@ -1,23 +1,22 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Decorations from "@/components/Decorations";
-import Showcase from "@/components/Showcase";
 import Features from "@/components/Features";
+import Studio from "@/components/Studio";
 import Themes from "@/components/Themes";
 import Download from "@/components/Download";
 import Changelog from "@/components/Changelog";
 import Footer from "@/components/Footer";
+import Decorations from "@/components/Decorations";
 
-export default function Page() {
+export default function Home() {
   return (
     <>
-      <div className="bg" aria-hidden="true"><i className="orb o1" /><i className="orb o2" /></div>
+      <Decorations />
       <Nav />
-      <main className="wrap">
+      <main>
         <Hero />
-        <Decorations />
-        <Showcase />
         <Features />
+        <Studio />
         <Themes />
         <Download />
         <Changelog />
